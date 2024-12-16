@@ -1,8 +1,11 @@
 import { dirname, join, resolve } from "path";
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
 function getAbsolutePath(value) {
   return dirname(require.resolve(join(value, "package.json")));
 }
+
+injectSpeedInsights();
 
 const config = {
   stories: ["../stories/*.stories.tsx", "../stories/**/*.stories.tsx"],
